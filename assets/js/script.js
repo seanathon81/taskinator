@@ -1,10 +1,14 @@
 //Select button
-var buttonEl = document.querySelector("#save-task");
-//Setting variable to li item
-var tasksToDoEl = document.querySelector("#tasks-to-do");
-//mouse click event listener and function
+var formEl = document.querySelector("#task-form");
 
-var createTaskHandler = function() {
+var tasksToDoEl = document.querySelector("#tasks-to-do");
+
+
+//mouse click or enter
+var createTaskHandler = function(event) {
+    //stops browser from refreshing
+    event.preventDefault();
+    
     //creates list item
     var listItemEl = document.createElement("li");
     //adds css styling from style sheet to created html element
@@ -15,7 +19,7 @@ var createTaskHandler = function() {
     tasksToDoEl.appendChild(listItemEl);
   }
 //mouse click event listener and runs createTaskHandler function
-buttonEl.addEventListener("click", createTaskHandler)
+formEl.addEventListener("submit", createTaskHandler);
 
 
 
