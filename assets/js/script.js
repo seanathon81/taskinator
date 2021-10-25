@@ -11,13 +11,20 @@ var taskFormHandler = function(event) {
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     //retrieving galue from console dir - drop down menu
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
-    // create div to hold task info and add to list item
+    //validate that form completed correctly
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
+    
+        formEl.reset();
 
     // package up data as an object
     var taskDataObj = {
         name: taskNameInput,
         type: taskTypeInput,
-    };
+};
+
 
     // send it as an argument to creatTaskEl
     createTaskEL(taskDataObj);
